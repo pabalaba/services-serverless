@@ -1,0 +1,28 @@
+service: services-serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+
+functions:
+  getmany:
+    handler: handler.method_handler
+    events:
+      - httpApi:
+          method: GET
+          path: /students
+      - httpApi:
+          method: GET
+          path: /students/{id}
+      - httpApi:
+          method: POST
+          path: /students
+      - httpApi:
+          method: PUT
+          path: /students/{id}
+      - httpApi:
+          method: DELETE
+          path: /students/{id}
+
